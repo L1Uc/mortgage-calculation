@@ -1,0 +1,37 @@
+# GitHub Pages Jekyll 配置
+title: 房贷计算和分析工具
+description: 专业的房贷对比分析工具，支持本地JavaScript计算
+
+# 排除不需要处理的文件
+exclude:
+  - README.md
+  - node_modules/
+  - package*.json
+  - *.backup
+  - proxy-server.js.backup
+  - claude-api.js.backup
+  - script.js.backup
+  - problems.md
+  - project_description.md
+  - update.md
+
+# 包含的文件
+include:
+  - index.html
+  - script.js
+  - styles.css
+  - images/
+
+# 插件
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+
+# 相对链接设置
+relative_links:
+  enabled: true
+  collections: true
+
+# 可选前置内容
+optional_front_matter:
+  enabled: true

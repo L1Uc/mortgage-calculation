@@ -1,0 +1,32 @@
+{
+  "name": "mortgage-calculator-claude",
+  "version": "1.0.0",
+  "description": "房贷计算和分析工具 - 集成Claude AI",
+  "main": "proxy-server.js",
+  "scripts": {
+    "start": "node proxy-server.js",
+    "dev": "nodemon proxy-server.js",
+    "install-deps": "npm install",
+    "setup": "npm install && echo '依赖安装完成，运行 npm start 启动代理服务器'"
+  },
+  "keywords": [
+    "mortgage",
+    "calculator",
+    "claude",
+    "api",
+    "proxy"
+  ],
+  "author": "Claude AI Assistant",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^2.6.12"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房贷计算和分析</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>房贷计算和分析</h1>
+            <p>专业的房贷对比分析工具</p>
+        </header>
+
+        <!-- Input Sections -->
+        <div class="input-sections">
+            <!-- 财务情况 -->
+            <section class="section" id="financial-info">
+                <h2>💰 财务情况</h2>
+                <div class="form-group">
+                    <label>现有存款金额 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="savings" placeholder="300" step="0.01">
+                    <small>指可随时取用的现金流存款，不包括公积金余额。</small>
+                </div>
+                <div class="form-group">
+                    <label>现有公积金余额 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="housing-fund-balance" placeholder="26" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>每月新增税后收入 <span class="required">*</span> (元)</label>
+                    <input type="number" id="monthly-income" placeholder="50000" step="1">
+                    <small>指每月扣除五险一金和税费后的收入，无需去除生活费用和房租。</small>
+                </div>
+                <div class="form-group">
+                    <label>每月新增公积金 <span class="required">*</span> (元)</label>
+                    <input type="number" id="monthly-housing-fund" placeholder="16000" step="1">
+                </div>
+                <div class="form-group">
+                    <label>每月固定支出 <span class="required">*</span> (元)</label>
+                    <input type="number" id="monthly-expenses" placeholder="21000" step="1">
+                    <small>不含房租、房贷。</small>
+                </div>
+            </section>
+
+            <!-- 租房情况 -->
+            <section class="section" id="rental-info">
+                <h2>🏠 租房情况</h2>
+                <div class="form-group">
+                    <label>房租 <span class="required">*</span> (元/月)</label>
+                    <input type="number" id="rent" placeholder="7000" step="1">
+                </div>
+            </section>
+
+            <!-- 计划买房情况 -->
+            <section class="section" id="house-purchase">
+                <h2>🏡 计划买房情况</h2>
+                <div class="form-group">
+                    <label>所在地区</label>
+                    <input type="text" id="location" value="北京市">
+                </div>
+                <div class="form-group">
+                    <label>房屋总价 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="house-price" placeholder="500" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>现有存款中用于首付金额 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="down-payment" placeholder="300" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>公积金贷款金额 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="housing-fund-loan" placeholder="80" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>商业贷款金额 <span class="required">*</span> (万元)</label>
+                    <input type="number" id="commercial-loan" placeholder="120" step="0.01">
+                </div>
+                <div class="form-group">
+                    <label>贷款期限</label>
+                    <select id="loan-term">
+                        <option value="240">20年(240期)</option>
+                        <option value="300">25年(300期)</option>
+                        <option value="360">30年(360期)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>公积金还款方式 <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="housing-fund-repayment" value="equal-principal" checked> 等额本金</label>
+                        <label><input type="radio" name="housing-fund-repayment" value="equal-payment"> 等额本息</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>商业还款方式 <span class="required">*</span></label>
+                    <div class="radio-group">
+                        <label><input type="radio" name="commercial-repayment" value="equal-principal"> 等额本金</label>
+                        <label><input type="radio" name="commercial-repayment" value="equal-payment" checked> 等额本息</label>
+                    </div>
+                    <small>等额本金：每月还款本金相同，利息逐月减少；<br>等额本息：每月还款金额相同，还款中本金占比逐月增加。</small>
+                </div>
+                <div class="form-group">
+                    <label>买房前租房时长 <span class="required">*</span> (年)</label>
+                    <input type="number" id="rent-duration" placeholder="1" step="0.1">
+                    <small>买房后、入住新房前，是否还需租房？如果是，则输入对应租房时长；如果否，则输入0。</small>
+                </div>
+            </section>
+
+            <!-- 宏观指标 -->
+            <section class="section" id="macro-indicators">
+                <h2>📈 宏观指标</h2>
+                <div class="form-group">
+                    <label>商业贷款利率 (%)</label>
+                    <input type="number" id="commercial-rate" value="3.05" step="0.01" placeholder="3.05">
+                    <small>(LPR-45 基点)</small>
+                </div>
+                <div class="form-group">
+                    <label>公积金贷款利率 (%)</label>
+                    <input type="number" id="housing-fund-rate" value="2.6" step="0.01" placeholder="2.6">
+                </div>
+                <div class="form-group">
+                    <label>通货膨胀率 (%)</label>
+                    <input type="number" id="inflation-rate" value="0.1" step="0.01" placeholder="0.1">
+                </div>
+                <div class="form-group">
+                    <label>年投资回报率 (%)</label>
+                    <input type="number" id="investment-return" value="5" step="0.01" placeholder="5">
+                </div>
+            </section>
+
+            <!-- 计算输出设置 -->
+            <section class="section" id="calculation-settings">
+                <h2>⚙️ 计算输出设置</h2>
+                <div class="form-group">
+                    <label>贷款期限结束时房产总增值率 <span class="required">*</span> (%)</label>
+                    <input type="number" id="property-appreciation" value="10" step="0.01" placeholder="10">
+                    <small>指在贷款期限结束时，房产相比购买时的总增值幅度（非年化收益率）</small>
+                </div>
+                <div class="form-group">
+                    <label>假设n个月后灵活就业 <span class="required">*</span> (个月)</label>
+                    <input type="number" id="unemployment-months" value="480" step="1" placeholder="480">
+                    <small>如目前为灵活就业状态，则输入0。<br>如不存在灵活就业情况，则输入的最大值为480个月(40年*12个月)。</small>
+                </div>
+            </section>
+        </div>
+
+        <!-- Calculation Buttons -->
+        <div class="buttons">
+            <button id="calculate-btn" class="primary-btn">🧮 开始计算</button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results-section" style="display: none;">
+            <h2>分析结果</h2>
+            
+            <!-- 1. 财富总值对比 -->
+            <div class="result-card">
+                <h3>1. 📊 财富总值对比</h3>
+                <div id="wealth-comparison-result"></div>
+                <canvas id="wealth-chart"></canvas>
+            </div>
+
+            <!-- 2. 月供压力评估 -->
+            <div class="result-card">
+                <h3>2. 💰 月供压力评估</h3>
+                <div id="payment-pressure-result"></div>
+                <div id="payment-details"></div>
+            </div>
+
+            <!-- 3. 月度支出占比 -->
+            <div class="result-card">
+                <h3>3. 📊 月度支出占比</h3>
+                <div id="expense-ratio-result"></div>
+            </div>
+
+            <!-- 4. 房价涨幅盈亏临界点 -->
+            <div class="result-card">
+                <h3>4. 📈 房价涨幅盈亏临界点</h3>
+                <div id="break-even-result"></div>
+            </div>
+
+            <!-- 5. 筛选目标区域房源 -->
+            <div class="result-card">
+                <h3>5. 🏘️ 筛选目标区域房源</h3>
+                <div id="house-selection-result"></div>
+                <div id="house-selection-table"></div>
+            </div>
+
+            <!-- 推荐建议 -->
+            <div class="result-card recommendation">
+                <h3>💡 参考建议</h3>
+                <div id="recommendations"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

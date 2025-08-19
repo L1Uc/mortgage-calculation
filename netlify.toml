@@ -1,0 +1,44 @@
+[build]
+  # 不需要构建步骤，直接发布静态文件
+  publish = "."
+  
+[build.environment]
+  # 静态站点，不需要环境变量
+
+# 重定向配置（单页应用）
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  # 只对HTML路径应用SPA重定向
+  conditions = {Role = ["admin"], Country = ["US"]}
+
+# 头部配置
+[[headers]]
+  # 对所有路径应用
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  # 对静态资源应用缓存
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
