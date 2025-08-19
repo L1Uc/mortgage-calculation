@@ -1,7 +1,4 @@
 # 房贷计算和分析工具
-
-[![部署状态](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/your-site-name/deploys)
-
 一个专业的房贷对比分析工具，帮助您做出明智的购房决策。
 
 ## ✨ 功能特性
@@ -19,8 +16,6 @@
 - GitHub Pages: [https://l1uc.github.io/mortgage-calculation/](https://l1uc.github.io/mortgage-calculation/)
 
 ## 💻 本地运行
-
-项目是纯静态网站，无需安装依赖：
 
 ```bash
 # 克隆项目
@@ -82,7 +77,6 @@ python -m http.server 8000
 本项目采用 [MIT 许可证](LICENSE) - 查看LICENSE文件了解详情
 
 ---
-
-欢迎提交问题和改进建议！
+非金融专业人士，计算方法和公式可能有误，请谨慎参考，欢迎对计算方法提交指正和修改建议！
 
 如果这个工具对您有帮助，请给项目一个 ⭐️！
