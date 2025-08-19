@@ -15,10 +15,8 @@
 
 ## 🚀 在线使用
 
-**部署链接**：
-- GitHub Pages: [https://yourusername.github.io/mortgage_calculation](https://yourusername.github.io/mortgage_calculation)
-- Netlify: [https://your-site-name.netlify.app](https://your-site-name.netlify.app)
-- Vercel: [https://your-project.vercel.app](https://your-project.vercel.app)
+**网页链接**：
+- GitHub Pages: [https://l1uc.github.io/mortgage-calculation/](https://l1uc.github.io/mortgage-calculation/)
 
 ## 💻 本地运行
 
@@ -74,44 +72,6 @@ python -m http.server 8000
 - 月供压力：XX%
 - 盈亏临界点：房价需增值XX%
 
-## 🔧 技术栈
-
-- **前端**：原生HTML5 + CSS3 + JavaScript
-- **图表**：Chart.js
-- **部署**：静态托管（GitHub Pages/Netlify/Vercel）
-- **特性**：响应式设计、无后端依赖
-
-## 📂 项目结构
-
-```
-├── index.html          # 主页面
-├── script.js          # 计算逻辑
-├── styles.css         # 样式文件
-├── images/            # 图片资源
-├── DEPLOYMENT.md      # 部署指南
-└── 配置文件/          # 各平台部署配置
-```
-
-## 🚀 部署指南
-
-详细部署说明请查看 [DEPLOYMENT.md](DEPLOYMENT.md)
-
-支持一键部署到：
-- ✅ GitHub Pages（免费）
-- ✅ Netlify（免费）
-- ✅ Vercel（免费）
-- ✅ Surge.sh（免费）
-- ✅ Firebase Hosting（免费）
-
-## 🤝 贡献指南
-
-欢迎提交问题和改进建议！
-
-1. Fork本项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 开启Pull Request
 
 ## ⚠️ 免责声明
 
@@ -121,11 +81,8 @@ python -m http.server 8000
 
 本项目采用 [MIT 许可证](LICENSE) - 查看LICENSE文件了解详情
 
-## 🙏 致谢
-
-- Chart.js - 图表库
-- 各大免费托管平台的支持
-
 ---
+
+欢迎提交问题和改进建议！
 
 如果这个工具对您有帮助，请给项目一个 ⭐️！
