@@ -920,16 +920,16 @@ const calculator = new MortgageCalculator();
 // 绑定事件
 document.addEventListener('DOMContentLoaded', function() {
     // 设置默认值
-    document.getElementById('savings').value = '300';
-    document.getElementById('housing-fund-balance').value = '26';
-    document.getElementById('monthly-income').value = '50000';
-    document.getElementById('monthly-housing-fund').value = '16000';
-    document.getElementById('monthly-expenses').value = '21000';
-    document.getElementById('rent').value = '7000';
-    document.getElementById('house-price').value = '500';
-    document.getElementById('down-payment').value = '300';
-    document.getElementById('housing-fund-loan').value = '80';
-    document.getElementById('commercial-loan').value = '120';
+    document.getElementById('savings').value = '50';
+    document.getElementById('housing-fund-balance').value = '10';
+    document.getElementById('monthly-income').value = '20000';
+    document.getElementById('monthly-housing-fund').value = '2000';
+    document.getElementById('monthly-expenses').value = '3000';
+    document.getElementById('rent').value = '3000';
+    document.getElementById('house-price').value = '300';
+    document.getElementById('down-payment').value = '50';
+    document.getElementById('housing-fund-loan').value = '50';
+    document.getElementById('commercial-loan').value = '200';
     document.getElementById('rent-duration').value = '1';
 
     // 绑定计算按钮
